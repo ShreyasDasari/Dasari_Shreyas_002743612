@@ -32,4 +32,8 @@ public class ProductHistory {
            
     }
     
+    public void deleteProduct(Product p){
+        history.remove(p);
+    } 
+    
 }

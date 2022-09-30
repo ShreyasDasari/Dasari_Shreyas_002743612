@@ -110,5 +110,9 @@ public class Product {
         this.photo = photo;
     }
     
+    @Override
+    public String toString(){
+        return name;
+    }
     
 }

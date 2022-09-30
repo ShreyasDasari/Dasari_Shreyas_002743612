@@ -4,7 +4,10 @@
  */
 package Window;
 
+import Model.Product;
 import Model.ProductHistory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +24,9 @@ public class ViewJPanel extends javax.swing.JPanel {
     public ViewJPanel(ProductHistory history) {
         initComponents();
         this.history = history;
+        
+        fillTable();
+             
     }
 
     /**
@@ -79,6 +85,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         BtnView.setText("View");
 
         BtnDelete.setText("Delete");
+        BtnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeleteActionPerformed(evt);
+            }
+        });
 
         LabelEmailID.setText("Email ID:");
 
@@ -216,6 +227,26 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtNameActionPerformed
 
+    private void BtnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = TableRecords.getSelectedRow();
+        
+        if (selectedRowIndex<0){
+            
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) TableRecords.getModel();
+        Product selectedRecords = (Product) model.getValueAt(selectedRowIndex, 0);
+        
+        history.deleteProduct(selectedRecords);
+        
+        JOptionPane.showMessageDialog(this, "Record Deleted!");
+        
+        fillTable();
+    }//GEN-LAST:event_BtnDeleteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnDelete;
@@ -245,4 +276,26 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField TxtTeaminfo;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    private void fillTable() {
+        
+    DefaultTableModel model = (DefaultTableModel) TableRecords.getModel();
+    model.setRowCount(0);
+    
+    for (Product p : history.getHistory()){
+        Object[] row = new Object[10];
+        row[0] = p;
+        row[1] = p.getEmpID();
+        row[2] = p.getAge();
+        row[3] = p.getGender();
+        row[4] = p.getStrdate();
+        row[5] = p.getLvl();
+        row[6] = p.getTeaminfo();
+        row[7] = p.getPostitle();
+        row[9] = p.getCellno();
+        row[8] = p.getEmailID();
+        
+        model.addRow(row);
+        }
+    }
 }
