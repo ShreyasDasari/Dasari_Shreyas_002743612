@@ -83,6 +83,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(TableRecords);
 
         BtnView.setText("View");
+        BtnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnViewActionPerformed(evt);
+            }
+        });
 
         BtnDelete.setText("Delete");
         BtnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +251,35 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         fillTable();
     }//GEN-LAST:event_BtnDeleteActionPerformed
+
+    private void BtnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = TableRecords.getSelectedRow();
+        
+        if (selectedRowIndex<0){
+            
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) TableRecords.getModel();
+        Product selectedRecords = (Product) model.getValueAt(selectedRowIndex, 0);
+        
+        TxtName.setText(selectedRecords.getName());
+        TxtEmpID.setText(selectedRecords.getEmpID());
+        TxtAge.setText(selectedRecords.getAge());
+        TxtGender.setText(selectedRecords.getGender());
+        TxtStrdate.setText(selectedRecords.getStrdate());
+        TxtLvl.setText(selectedRecords.getLvl());
+        TxtTeaminfo.setText(selectedRecords.getTeaminfo());
+        TxtPostitle.setText(selectedRecords.getPostitle());
+        TxtCellno.setText(selectedRecords.getCellno());
+        TxtEmailID.setText(selectedRecords.getEmailID());
+        //TxtPhoto.setText(selectedRecords.getName());
+        
+        
+        
+    }//GEN-LAST:event_BtnViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
