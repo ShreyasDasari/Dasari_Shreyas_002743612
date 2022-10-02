@@ -33,23 +33,34 @@
                       <Component id="LabelLvl" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TxtEmpID" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtName" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtAge" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtGender" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtStrdate" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtLvl" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtTeaminfo" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="TxtPostitle" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TxtStrdate" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtLvl" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtTeaminfo" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtPostitle" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="TxtEmpID" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtAge" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtGender" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="TxtName" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <Component id="LabelImage" min="-2" pref="96" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -85,24 +96,29 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Component id="LabelTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LabelName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LabelEmpID" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtEmpID" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="LabelAge" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtAge" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="LabelGender" min="-2" pref="17" max="-2" attributes="0"/>
-                  <Component id="TxtGender" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="LabelEmpID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtEmpID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LabelAge" min="-2" max="-2" attributes="0"/>
+                          <Component id="TxtAge" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LabelGender" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="TxtGender" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="LabelImage" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -261,6 +277,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtPhotoActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelImage">
     </Component>
   </SubComponents>
 </Form>

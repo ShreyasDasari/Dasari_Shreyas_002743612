@@ -4,6 +4,8 @@
  */
 package Model;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author shreyasdasariicloud.com

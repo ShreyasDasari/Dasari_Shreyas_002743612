@@ -8,16 +8,22 @@ import Model.Product;
 import Model.ProductHistory;
 import java.awt.Component;
 import java.awt.Desktop;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.RowFilter;
+import java.lang.String;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -30,6 +36,7 @@ public class ViewJPanel extends javax.swing.JPanel {
      */
     
     ProductHistory history;
+    DefaultTableModel model;
     
     public ViewJPanel(ProductHistory history) {
         initComponents();
@@ -38,7 +45,14 @@ public class ViewJPanel extends javax.swing.JPanel {
         fillTable();
              
     }
-
+    
+    public void search(String str){
+        model = (DefaultTableModel) TableRecords.getModel();
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<>(model);
+        TableRecords.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(str));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,6 +90,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         LabelCellno = new javax.swing.JLabel();
         LabelPhoto = new javax.swing.JLabel();
         BtnUpdate = new javax.swing.JButton();
+        LabelSearch = new javax.swing.JLabel();
+        TxtSearch = new javax.swing.JTextField();
 
         LabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 21)); // NOI18N
         LabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -143,6 +159,19 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        LabelSearch.setText("Search:");
+
+        TxtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSearchActionPerformed(evt);
+            }
+        });
+        TxtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtSearchKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,14 +234,23 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(BtnUpdate)
-                        .addGap(326, 326, 326))))
+                        .addGap(326, 326, 326))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(LabelSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(LabelTitle)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSearch)
+                    .addComponent(TxtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -263,7 +301,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(TxtCellno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(BtnUpdate)
-                        .addContainerGap(23, Short.MAX_VALUE))
+                        .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(LabelPhoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -294,7 +332,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         fillTable();
     }//GEN-LAST:event_BtnDeleteActionPerformed
-
+    
     private void BtnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnViewActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = TableRecords.getSelectedRow();
@@ -319,6 +357,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         TxtCellno.setText(selectedRecords.getCellno());
         TxtEmailID.setText(selectedRecords.getEmailID());
         // Displaying the photo 
+        // File sourceImage = new File((String) model.getValueAt(selectedRowIndex, 10));
+        //LabelPhoto.setIcon((Icon) sourceImage);
         
         
         
@@ -350,6 +390,16 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BtnUpdateActionPerformed
 
+    private void TxtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSearchActionPerformed
+
+    private void TxtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtSearchKeyReleased
+        // TODO add your handling code here:
+        String find = TxtSearch.getText();
+        search(find);
+    }//GEN-LAST:event_TxtSearchKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnDelete;
@@ -365,6 +415,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel LabelName;
     private javax.swing.JLabel LabelPhoto;
     private javax.swing.JLabel LabelPostitle;
+    private javax.swing.JLabel LabelSearch;
     private javax.swing.JLabel LabelStrdate;
     private javax.swing.JLabel LabelTeaminfo;
     private javax.swing.JLabel LabelTitle;
@@ -377,6 +428,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField TxtLvl;
     private javax.swing.JTextField TxtName;
     private javax.swing.JTextField TxtPostitle;
+    private javax.swing.JTextField TxtSearch;
     private javax.swing.JTextField TxtStrdate;
     private javax.swing.JTextField TxtTeaminfo;
     private javax.swing.JScrollPane jScrollPane1;
