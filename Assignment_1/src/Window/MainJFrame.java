@@ -37,6 +37,7 @@ public class MainJFrame extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnView = new javax.swing.JButton();
         WorkSpace = new javax.swing.JPanel();
+        LabelTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +64,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGroup(ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCreate)
                     .addComponent(btnView))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ControlPanelLayout.setVerticalGroup(
             ControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,15 +78,24 @@ public class MainJFrame extends javax.swing.JFrame {
 
         SplitPane.setLeftComponent(ControlPanel);
 
+        LabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 22)); // NOI18N
+        LabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LabelTitle.setText("Employee Records");
+
         javax.swing.GroupLayout WorkSpaceLayout = new javax.swing.GroupLayout(WorkSpace);
         WorkSpace.setLayout(WorkSpaceLayout);
         WorkSpaceLayout.setHorizontalGroup(
             WorkSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGroup(WorkSpaceLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
         );
         WorkSpaceLayout.setVerticalGroup(
             WorkSpaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(WorkSpaceLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(LabelTitle)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         SplitPane.setRightComponent(WorkSpace);
@@ -153,6 +163,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ControlPanel;
+    private javax.swing.JLabel LabelTitle;
     private javax.swing.JSplitPane SplitPane;
     private javax.swing.JPanel WorkSpace;
     private javax.swing.JButton btnCreate;

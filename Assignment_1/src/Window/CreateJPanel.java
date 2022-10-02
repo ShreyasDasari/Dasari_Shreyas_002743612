@@ -6,7 +6,12 @@ package Window;
 
 import Model.Product;
 import Model.ProductHistory;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import java.lang.String;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -58,6 +63,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         TxtEmailID = new javax.swing.JTextField();
         BtnAdd = new javax.swing.JButton();
         BtnSave = new javax.swing.JButton();
+        TxtPhoto = new javax.swing.JTextField();
 
         LabelTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         LabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -94,11 +100,22 @@ public class CreateJPanel extends javax.swing.JPanel {
         });
 
         BtnAdd.setText("Add");
+        BtnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAddActionPerformed(evt);
+            }
+        });
 
         BtnSave.setText("Save");
         BtnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnSaveActionPerformed(evt);
+            }
+        });
+
+        TxtPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtPhotoActionPerformed(evt);
             }
         });
 
@@ -145,7 +162,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(TxtCellno, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                                     .addComponent(TxtEmailID)))
-                            .addComponent(BtnAdd))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(BtnAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(121, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -201,7 +221,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelPhoto)
-                    .addComponent(BtnAdd))
+                    .addComponent(BtnAdd)
+                    .addComponent(TxtPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtnSave)
                 .addContainerGap(8, Short.MAX_VALUE))
@@ -213,7 +234,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_TxtNameActionPerformed
 
     private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
+        String selectedImagePath = "";
         // TODO add your handling code here:
+        
+       
+        ImageIcon imageicon = new ImageIcon(selectedImagePath);
+        LabelPhoto.setIcon(imageicon);
         String name = TxtName.getText();
         String empID = TxtEmpID.getText();
         String age = TxtAge.getText();
@@ -224,6 +250,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         String postitle = TxtPostitle.getText();
         String cellno = TxtCellno.getText();
         String emailID = TxtEmailID.getText();
+        String photo = TxtPhoto.getText();
+        
         
         Product p = history.addNewProduct();
         
@@ -237,6 +265,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         p.setTeaminfo(teaminfo);
         p.setCellno(cellno);
         p.setEmailID(emailID);
+        p.setPhoto(photo);
         
         JOptionPane.showMessageDialog(this, "New Record Added");
         
@@ -250,8 +279,31 @@ public class CreateJPanel extends javax.swing.JPanel {
         TxtPostitle.setText("");
         TxtCellno.setText("");
         TxtEmailID.setText("");
+        TxtPhoto.setText("");
+        
+        
         
     }//GEN-LAST:event_BtnSaveActionPerformed
+
+    private void BtnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAddActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        if(showOpenDialogue == JFileChooser.APPROVE_OPTION){
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            TxtPhoto.setText(selectedImagePath);
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+        }
+            
+            
+    }//GEN-LAST:event_BtnAddActionPerformed
+
+    private void TxtPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPhotoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtPhotoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -277,6 +329,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField TxtGender;
     private javax.swing.JTextField TxtLvl;
     private javax.swing.JTextField TxtName;
+    private javax.swing.JTextField TxtPhoto;
     private javax.swing.JTextField TxtPostitle;
     private javax.swing.JTextField TxtStrdate;
     private javax.swing.JTextField TxtTeaminfo;
