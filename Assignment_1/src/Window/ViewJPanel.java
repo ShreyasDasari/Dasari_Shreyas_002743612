@@ -357,8 +357,13 @@ public class ViewJPanel extends javax.swing.JPanel {
         TxtCellno.setText(selectedRecords.getCellno());
         TxtEmailID.setText(selectedRecords.getEmailID());
         // Displaying the photo 
-        // File sourceImage = new File((String) model.getValueAt(selectedRowIndex, 10));
-        //LabelPhoto.setIcon((Icon) sourceImage);
+        String img=model.getValueAt(TableRecords.getSelectedRow(), 10).toString();
+            
+            //display on jlabel
+           ImageIcon ii= new ImageIcon(img);
+           //resize image
+           Image image=ii.getImage().getScaledInstance(LabelPhoto.getWidth(), LabelPhoto.getHeight(), Image.SCALE_SMOOTH);
+           LabelPhoto.setIcon(new ImageIcon(image));
         
         
         
