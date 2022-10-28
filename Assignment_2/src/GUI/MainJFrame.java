@@ -5,6 +5,8 @@
 package GUI;
 
 import static java.awt.Color.cyan;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -30,7 +32,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
+        SplitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         BtnRegister = new javax.swing.JButton();
         BtnLogin = new javax.swing.JButton();
@@ -47,6 +49,11 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         BtnLogin.setText("LOGIN");
+        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -69,7 +76,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanel2);
+        SplitPane.setLeftComponent(jPanel2);
 
         LblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/mainpage image.png"))); // NOI18N
         LblBackground.setLabelFor(LblBackground);
@@ -91,17 +98,17 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel3);
+        SplitPane.setRightComponent(jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,8 +128,16 @@ public class MainJFrame extends javax.swing.JFrame {
     private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
         // TODO add your handling code here:
         RegisterJPanel registerPanel = new RegisterJPanel();
-        jSplitPane1.setRightComponent(registerPanel);
+        SplitPane.setRightComponent(registerPanel);
     }//GEN-LAST:event_BtnRegisterActionPerformed
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        // TODO add your handling code here:
+        LoginJFrame lp = new LoginJFrame();
+        lp.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_BtnLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,9 +178,17 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton BtnLogin;
     private javax.swing.JButton BtnRegister;
     private javax.swing.JLabel LblBackground;
+    private javax.swing.JSplitPane SplitPane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
+
+    
+public void closewin(){
+    WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+    Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
 }
+    
+}
+
