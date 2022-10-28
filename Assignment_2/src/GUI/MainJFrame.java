@@ -19,7 +19,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(cyan);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +40,11 @@ public class MainJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BtnRegister.setText("REGISTER");
+        BtnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnRegisterActionPerformed(evt);
+            }
+        });
 
         BtnLogin.setText("LOGIN");
 
@@ -66,7 +71,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setLeftComponent(jPanel2);
 
-        LblBackground.setIcon(new javax.swing.ImageIcon("/Users/shreyasdasariicloud.com/Desktop/Dasari_Shreyas_002743612/Assignment_2/images/health-news-medicine-app-store-apple-png-favpng-ppHmmMabSTk2mvpKmLpWQ10LN.jpeg")); // NOI18N
+        LblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/mainpage image.png"))); // NOI18N
+        LblBackground.setLabelFor(LblBackground);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -111,6 +117,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
+        // TODO add your handling code here:
+        RegisterJPanel registerPanel = new RegisterJPanel();
+        jSplitPane1.setRightComponent(registerPanel);
+    }//GEN-LAST:event_BtnRegisterActionPerformed
 
     /**
      * @param args the command line arguments

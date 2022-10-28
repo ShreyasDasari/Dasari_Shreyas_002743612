@@ -89,6 +89,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="REGISTER"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnRegisterActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="BtnLogin">
                   <Properties>
@@ -128,7 +131,10 @@
                 <Component class="javax.swing.JLabel" name="LblBackground">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="/Users/shreyasdasariicloud.com/Desktop/Dasari_Shreyas_002743612/Assignment_2/images/health-news-medicine-app-store-apple-png-favpng-ppHmmMabSTk2mvpKmLpWQ10LN.jpeg"/>
+                      <Image iconType="3" name="/GUI/mainpage image.png"/>
+                    </Property>
+                    <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="LblBackground"/>
                     </Property>
                   </Properties>
                 </Component>
