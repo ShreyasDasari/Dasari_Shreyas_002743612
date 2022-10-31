@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Model.Personhistory;
 import static java.awt.Color.cyan;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
@@ -17,6 +18,7 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    Personhistory personHistory;
     public MainJFrame() {
         initComponents();
         getContentPane().setBackground(cyan);
@@ -34,26 +36,30 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         SplitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        BtnPatientLogin = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         BtnPersonLogin = new javax.swing.JButton();
+        BtnPatientLogin = new javax.swing.JButton();
         BtnSystemAdmin = new javax.swing.JButton();
         BtnCommunityAdmin = new javax.swing.JButton();
         PanelMain = new javax.swing.JPanel();
         LblBackground = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BtnPatientLogin.setText("PATIENT");
-        BtnPatientLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnPatientLoginActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
 
         BtnPersonLogin.setText("PERSON");
         BtnPersonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPersonLoginActionPerformed(evt);
+            }
+        });
+
+        BtnPatientLogin.setText("PATIENT");
+        BtnPatientLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPatientLoginActionPerformed(evt);
             }
         });
 
@@ -64,30 +70,26 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        BtnCommunityAdmin.setText("COMMUNITYADMIN");
+        BtnCommunityAdmin.setText("COMMUNITYSEARCH");
         BtnCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCommunityAdminActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnPatientLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnSystemAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnPersonLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnCommunityAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnPatientLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnCommunityAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnPersonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(BtnSystemAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addComponent(BtnPersonLogin)
                 .addGap(18, 18, 18)
                 .addComponent(BtnPatientLogin)
@@ -95,7 +97,20 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(BtnSystemAdmin)
                 .addGap(18, 18, 18)
                 .addComponent(BtnCommunityAdmin)
-                .addContainerGap(289, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         SplitPane.setLeftComponent(jPanel2);
@@ -103,21 +118,23 @@ public class MainJFrame extends javax.swing.JFrame {
         LblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/mainpage image.png"))); // NOI18N
         LblBackground.setLabelFor(LblBackground);
 
+        jTextField1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jTextField1.setText("HEALTH COMMUNITY APP");
+
         javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
         PanelMain.setLayout(PanelMainLayout);
         PanelMainLayout.setHorizontalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMainLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(LblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+            .addComponent(LblBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
         );
         PanelMainLayout.setVerticalGroup(
             PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelMainLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(LblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelMainLayout.createSequentialGroup()
+                .addGap(0, 13, Short.MAX_VALUE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(LblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         SplitPane.setRightComponent(PanelMain);
@@ -126,11 +143,11 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,8 +166,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void BtnPatientLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPatientLoginActionPerformed
         // TODO add your handling code here:
-        PersonLoginJPanel personlogin = new PersonLoginJPanel(SplitPane);
-        SplitPane.setRightComponent(personlogin);
+        RegisterJPanel registerpanel = new RegisterJPanel(SplitPane, personHistory);
+        SplitPane.setRightComponent(registerpanel);
+        //PatientLoginJPanel patientLogin = new PatientLoginJPanel(SplitPane);
+        //SplitPane.setRightComponent(patientLogin);
     }//GEN-LAST:event_BtnPatientLoginActionPerformed
 
     private void BtnPersonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPersonLoginActionPerformed
@@ -158,16 +177,22 @@ public class MainJFrame extends javax.swing.JFrame {
 //        LoginJFrame lp = new LoginJFrame();
 //        lp.setVisible(true);
 //        dispose();
-        PersonLoginJPanel personlogin = new PersonLoginJPanel(SplitPane);
-        SplitPane.setRightComponent(personlogin);
+        PersonRegisterJPanel personRegister = new PersonRegisterJPanel(SplitPane, personHistory);
+        SplitPane.setRightComponent(personRegister);
+//        PersonLoginJPanel personlogin = new PersonLoginJPanel(SplitPane, personHistory);
+//        SplitPane.setRightComponent(personlogin);
     }//GEN-LAST:event_BtnPersonLoginActionPerformed
 
     private void BtnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSystemAdminActionPerformed
         // TODO add your handling code here:
+        SystemLogin systemLogin = new SystemLogin(SplitPane, personHistory);
+        SplitPane.setRightComponent(systemLogin);
     }//GEN-LAST:event_BtnSystemAdminActionPerformed
 
     private void BtnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCommunityAdminActionPerformed
         // TODO add your handling code here:
+        CommunitySearch communitySearch = new CommunitySearch(SplitPane, personHistory);
+        SplitPane.setRightComponent(communitySearch);
     }//GEN-LAST:event_BtnCommunityAdminActionPerformed
 
     /**
@@ -215,6 +240,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane SplitPane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     

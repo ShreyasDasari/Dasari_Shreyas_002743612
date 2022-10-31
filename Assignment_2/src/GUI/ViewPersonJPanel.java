@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Model.Personhistory;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
@@ -17,9 +18,11 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
      * Creates new form ViewPersonJPanel
      */
     private JSplitPane SplitPane;
-    public ViewPersonJPanel(JSplitPane SplitPane) {
+    Personhistory personHistory;
+    public ViewPersonJPanel(JSplitPane SplitPane, Personhistory personHistory) {
         initComponents();
         this.SplitPane = SplitPane;
+        this.personHistory = personHistory;
     }
 
     /**

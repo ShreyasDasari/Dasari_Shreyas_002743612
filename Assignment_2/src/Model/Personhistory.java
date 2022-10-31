@@ -12,33 +12,33 @@ import java.util.ArrayList;
  */
 public class Personhistory {
     
-    private ArrayList<Person> history;
+    private ArrayList<Person> personHistory;
     
     public Personhistory(){
-        this.history = new ArrayList<Person>();
+        this.personHistory = new ArrayList<Person>();
         
     }
 
     public ArrayList<Person> getHistory() {
-        return history;
+        return personHistory;
     }
 
-    public void setHistory(ArrayList<Person> history) {
-        this.history = history;
+    public void setHistory(ArrayList<Person> personHistory) {
+        this.personHistory = personHistory;
     }
     
     public Person addNewPerson(){
         Person newPerson = new Person();
-        history.add(newPerson);
+        personHistory.add(newPerson);
         return newPerson;           
     }         
     
     public void deletePerson(Person newPerson){
-        history.remove(newPerson);        
+        personHistory.remove(newPerson);        
     }
     
     public void updatePerson(Person newPerson){
-        history.add(newPerson);       
+        personHistory.add(newPerson);       
     }
             
     

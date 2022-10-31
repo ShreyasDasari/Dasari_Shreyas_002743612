@@ -10,6 +10,7 @@ package Model;
  */
 public class Person {
     public String name;
+    public String password;
     public int age;
     public String gender;
     public String address;
@@ -81,6 +82,22 @@ public class Person {
     public void setEmailID(String emailID) {
         this.emailID = emailID;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    @Override
+    public String toString()
+    {
+        return Name;
+    }
+    protected String Name;
+    //protected int age;
+    protected String Gender;
     
     
     

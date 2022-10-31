@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI;
-import Model.Person;
+
 import Model.Personhistory;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
@@ -12,14 +12,14 @@ import javax.swing.JSplitPane;
  *
  * @author shreyasdasariicloud.com
  */
-public class PersonLoginJPanel extends javax.swing.JPanel {
+public class SystemLogin extends javax.swing.JPanel {
 
     /**
-     * Creates new form PersonLoginJPanel
+     * Creates new form SystemLogin
      */
     private JSplitPane SplitPane;
     Personhistory personHistory;
-    public PersonLoginJPanel(JSplitPane SplitPane, Personhistory personHistory) {
+    public SystemLogin(JSplitPane SplitPane, Personhistory personHistory) {
         initComponents();
         this.SplitPane = SplitPane;
         this.personHistory = personHistory;
@@ -34,14 +34,37 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        paneltitle = new javax.swing.JPanel();
+        lbltitle = new javax.swing.JLabel();
         txtpass = new javax.swing.JPasswordField();
         txtusername = new javax.swing.JTextField();
         btnback = new javax.swing.JButton();
         btnlogin = new javax.swing.JButton();
-        paneltitle = new javax.swing.JPanel();
-        lbltitle = new javax.swing.JLabel();
         lblusername = new javax.swing.JLabel();
         lblpass = new javax.swing.JLabel();
+
+        paneltitle.setBackground(new java.awt.Color(0, 204, 255));
+
+        lbltitle.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lbltitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbltitle.setText("Admin Login Page");
+
+        javax.swing.GroupLayout paneltitleLayout = new javax.swing.GroupLayout(paneltitle);
+        paneltitle.setLayout(paneltitleLayout);
+        paneltitleLayout.setHorizontalGroup(
+            paneltitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneltitleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        paneltitleLayout.setVerticalGroup(
+            paneltitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneltitleLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,26 +86,6 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
             }
         });
 
-        paneltitle.setBackground(new java.awt.Color(0, 204, 255));
-
-        lbltitle.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
-        lbltitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbltitle.setText("Person Login Page");
-
-        javax.swing.GroupLayout paneltitleLayout = new javax.swing.GroupLayout(paneltitle);
-        paneltitle.setLayout(paneltitleLayout);
-        paneltitleLayout.setHorizontalGroup(
-            paneltitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        paneltitleLayout.setVerticalGroup(
-            paneltitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneltitleLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lbltitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-
         lblusername.setText("Username:");
 
         lblpass.setText("Password:");
@@ -91,8 +94,9 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+            .addComponent(paneltitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(187, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnback)
@@ -104,16 +108,15 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
                             .addComponent(lblusername))
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtusername, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                            .addComponent(txtpass))))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addComponent(paneltitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtusername)
+                            .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(173, 173, 173))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(paneltitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblusername)
                     .addComponent(txtusername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -125,7 +128,7 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnback)
                     .addComponent(btnlogin))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -137,33 +140,26 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         MainPageJPanel mp = new MainPageJPanel(SplitPane, personHistory);
         SplitPane.setRightComponent(mp);
-        
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
         String username = txtusername.getText();
         String password = txtpass.getText();
-        for (Person p : personHistory.getHistory()){
-            if (username.equals(p.getName()) && password.equals(p.getPassword())){
+        if(username.equals("admin") && password.equals("admin")){
             JOptionPane.showMessageDialog(this, "Login Successful");
-            
-//            MainJFrame mj = new MainJFrame();
-//            mj.setVisible(true);
-            //dispose();
-            ViewPersonJPanel ViewPerson = new ViewPersonJPanel(SplitPane, personHistory);
-            SplitPane.setRightComponent(ViewPerson);
-            }
-            
-        
-            else{
+
+            AdminUI adminUI = new AdminUI(SplitPane, personHistory);
+            SplitPane.setRightComponent(adminUI);
+        }
+
+        else{
             JOptionPane.showMessageDialog(this, "Invalid Username or Password ");
             txtusername.setText("");
             txtpass.setText("");
-            }
-
+        }
     }//GEN-LAST:event_btnloginActionPerformed
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;
