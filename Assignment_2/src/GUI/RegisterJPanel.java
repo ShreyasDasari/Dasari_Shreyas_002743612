@@ -6,6 +6,7 @@ package GUI;
 
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -16,8 +17,10 @@ public class RegisterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RegisterJPanel
      */
-    public RegisterJPanel() {
+    private JSplitPane SplitPane;
+    public RegisterJPanel(JSplitPane SplitPane) {
         initComponents();
+        this.SplitPane = SplitPane;
     }
 
     /**
@@ -332,9 +335,11 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
         // TODO add your handling code here:
-        systemExit();
-        MainJFrame mj = new MainJFrame();
-        mj.setVisible(true);
+        //closeWin();
+        MainPageJPanel mp = new MainPageJPanel(SplitPane);
+        SplitPane.setRightComponent(mp);
+        
+        
        
     }//GEN-LAST:event_BtnBackActionPerformed
 

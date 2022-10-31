@@ -1,27 +1,26 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package GUI;
 
-import GUI.RegisterJPanel;
-import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import javax.swing.JSplitPane;
 
 /**
  *
  * @author shreyasdasariicloud.com
  */
-public class LoginJFrame extends javax.swing.JFrame {
+public class PersonLoginJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form LoginJFrame
+     * Creates new form PersonLoginJPanel
      */
-    public LoginJFrame() {
+    private JSplitPane SplitPane;
+    public PersonLoginJPanel(JSplitPane SplitPane) {
         initComponents();
+        this.SplitPane = SplitPane;
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,20 +31,14 @@ public class LoginJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblusername = new javax.swing.JLabel();
-        lblpass = new javax.swing.JLabel();
         txtpass = new javax.swing.JPasswordField();
         txtusername = new javax.swing.JTextField();
         btnback = new javax.swing.JButton();
         btnlogin = new javax.swing.JButton();
         paneltitle = new javax.swing.JPanel();
         lbltitle = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblusername.setText("Username:");
-
-        lblpass.setText("Password:");
+        lblusername = new javax.swing.JLabel();
+        lblpass = new javax.swing.JLabel();
 
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +80,12 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        lblusername.setText("Username:");
+
+        lblpass.setText("Password:");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -127,75 +124,45 @@ public class LoginJFrame extends javax.swing.JFrame {
                     .addComponent(btnlogin))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtusernameActionPerformed
-    
+
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
+        MainPageJPanel mp = new MainPageJPanel(SplitPane);
+        SplitPane.setRightComponent(mp);
         
-        MainJFrame mj = new MainJFrame();
-        mj.setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnbackActionPerformed
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
         // TODO add your handling code here:
         String username = txtusername.getText();
         String password = txtpass.getText();
-        if (username.equals("admin") && password.equals("admin")){
-            JOptionPane.showMessageDialog(this, "Login successful");
-            MainJFrame mj = new MainJFrame();
-            mj.setVisible(true);
+        if (username.equals("person") && password.equals("person")){
+            JOptionPane.showMessageDialog(this, "Login Successful");
+//            MainJFrame mj = new MainJFrame();
+//            mj.setVisible(true);
             //dispose();
+            RegisterJPanel RegisterPerson = new RegisterJPanel(SplitPane);
+            SplitPane.setRightComponent(RegisterPerson);
         }
+        else if(username.equals("patient") && password.equals("patient")){
+            JOptionPane.showMessageDialog(this, "Login Successful");
+            
+                }
+            
+        
         else{
             JOptionPane.showMessageDialog(this, "Invalid Username or Password ");
             txtusername.setText("");
             txtpass.setText("");
         }
-            
-        
+
     }//GEN-LAST:event_btnloginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginJFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;

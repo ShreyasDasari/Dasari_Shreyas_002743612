@@ -34,24 +34,40 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         SplitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
-        BtnRegister = new javax.swing.JButton();
-        BtnLogin = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        BtnPatientLogin = new javax.swing.JButton();
+        BtnPersonLogin = new javax.swing.JButton();
+        BtnSystemAdmin = new javax.swing.JButton();
+        BtnCommunityAdmin = new javax.swing.JButton();
+        PanelMain = new javax.swing.JPanel();
         LblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BtnRegister.setText("REGISTER");
-        BtnRegister.addActionListener(new java.awt.event.ActionListener() {
+        BtnPatientLogin.setText("PATIENT");
+        BtnPatientLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRegisterActionPerformed(evt);
+                BtnPatientLoginActionPerformed(evt);
             }
         });
 
-        BtnLogin.setText("LOGIN");
-        BtnLogin.addActionListener(new java.awt.event.ActionListener() {
+        BtnPersonLogin.setText("PERSON");
+        BtnPersonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnLoginActionPerformed(evt);
+                BtnPersonLoginActionPerformed(evt);
+            }
+        });
+
+        BtnSystemAdmin.setText("SYSTEMADMIN");
+        BtnSystemAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSystemAdminActionPerformed(evt);
+            }
+        });
+
+        BtnCommunityAdmin.setText("COMMUNITYADMIN");
+        BtnCommunityAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCommunityAdminActionPerformed(evt);
             }
         });
 
@@ -59,21 +75,27 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnPatientLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnSystemAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnPersonLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BtnCommunityAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(BtnRegister)
-                .addGap(32, 32, 32)
-                .addComponent(BtnLogin)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(BtnPersonLogin)
+                .addGap(18, 18, 18)
+                .addComponent(BtnPatientLogin)
+                .addGap(18, 18, 18)
+                .addComponent(BtnSystemAdmin)
+                .addGap(18, 18, 18)
+                .addComponent(BtnCommunityAdmin)
+                .addContainerGap(289, Short.MAX_VALUE))
         );
 
         SplitPane.setLeftComponent(jPanel2);
@@ -81,34 +103,34 @@ public class MainJFrame extends javax.swing.JFrame {
         LblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/mainpage image.png"))); // NOI18N
         LblBackground.setLabelFor(LblBackground);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+        javax.swing.GroupLayout PanelMainLayout = new javax.swing.GroupLayout(PanelMain);
+        PanelMain.setLayout(PanelMainLayout);
+        PanelMainLayout.setHorizontalGroup(
+            PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMainLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
                 .addComponent(LblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+        PanelMainLayout.setVerticalGroup(
+            PanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelMainLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
                 .addComponent(LblBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        SplitPane.setRightComponent(jPanel3);
+        SplitPane.setRightComponent(PanelMain);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(SplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,19 +147,28 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRegisterActionPerformed
+    private void BtnPatientLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPatientLoginActionPerformed
         // TODO add your handling code here:
-        RegisterJPanel registerPanel = new RegisterJPanel();
-        SplitPane.setRightComponent(registerPanel);
-    }//GEN-LAST:event_BtnRegisterActionPerformed
+        PersonLoginJPanel personlogin = new PersonLoginJPanel(SplitPane);
+        SplitPane.setRightComponent(personlogin);
+    }//GEN-LAST:event_BtnPatientLoginActionPerformed
 
-    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+    private void BtnPersonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPersonLoginActionPerformed
         // TODO add your handling code here:
-        LoginJFrame lp = new LoginJFrame();
-        lp.setVisible(true);
-        dispose();
-        
-    }//GEN-LAST:event_BtnLoginActionPerformed
+//        LoginJFrame lp = new LoginJFrame();
+//        lp.setVisible(true);
+//        dispose();
+        PersonLoginJPanel personlogin = new PersonLoginJPanel(SplitPane);
+        SplitPane.setRightComponent(personlogin);
+    }//GEN-LAST:event_BtnPersonLoginActionPerformed
+
+    private void BtnSystemAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSystemAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSystemAdminActionPerformed
+
+    private void BtnCommunityAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCommunityAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnCommunityAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,13 +206,15 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtnLogin;
-    private javax.swing.JButton BtnRegister;
+    private javax.swing.JButton BtnCommunityAdmin;
+    private javax.swing.JButton BtnPatientLogin;
+    private javax.swing.JButton BtnPersonLogin;
+    private javax.swing.JButton BtnSystemAdmin;
     private javax.swing.JLabel LblBackground;
+    private javax.swing.JPanel PanelMain;
     private javax.swing.JSplitPane SplitPane;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
     
