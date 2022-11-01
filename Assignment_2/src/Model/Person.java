@@ -9,15 +9,15 @@ package Model;
  * @author shreyasdasariicloud.com
  */
 public class Person {
-    public String name;
-    public String password;
-    public int age;
-    public String gender;
-    public String address;
-    public String city;
-    public int pincode;
-    public int cellphoneno;
-    public String emailID;
+    private String name;
+    private String password;
+    private int age;
+    private String gender;
+    private String address;
+    private String city;
+    private int pincode;
+    private int cellphoneno;
+    private String emailID;
 
     public String getName() {
         return name;
@@ -91,13 +91,9 @@ public class Person {
         this.password = password;
     }
     @Override
-    public String toString()
-    {
-        return Name;
+    public String toString(){
+        return name;
     }
-    protected String Name;
-    //protected int age;
-    protected String Gender;
     
     
     

@@ -22,7 +22,7 @@
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                       <Component id="BtnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BtnSave1" min="-2" max="-2" attributes="0"/>
+                      <Component id="BtnSave" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="BtnLogin" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -134,8 +134,8 @@
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="BtnSave1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnSave" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
           </Group>
@@ -255,14 +255,6 @@
         <Property name="text" type="java.lang.String" value="City:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="BtnSave1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Save"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSave1ActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="BtnLogin">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
@@ -285,6 +277,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="TxtPass">
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnSave">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnSaveActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

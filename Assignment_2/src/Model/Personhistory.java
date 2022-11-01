@@ -15,18 +15,17 @@ public class Personhistory {
     private ArrayList<Person> personHistory;
     
     public Personhistory(){
-        this.personHistory = new ArrayList<Person>();
-        
+        this.personHistory = new ArrayList<Person>();        
     }
 
-    public ArrayList<Person> getHistory() {
+    public ArrayList<Person> getPersonHistory() {
         return personHistory;
     }
 
-    public void setHistory(ArrayList<Person> personHistory) {
+    public void setPersonHistory(ArrayList<Person> personHistory) {
         this.personHistory = personHistory;
     }
-    
+        
     public Person addNewPerson(){
         Person newPerson = new Person();
         personHistory.add(newPerson);

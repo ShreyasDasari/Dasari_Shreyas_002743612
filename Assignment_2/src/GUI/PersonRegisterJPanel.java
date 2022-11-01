@@ -18,24 +18,24 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
     /**
      * Creates new form PatientRegisterJPanel
      */
-    JSplitPane SplitPane;
+    private JSplitPane SplitPane;
     Personhistory personHistory;
+    
     public PersonRegisterJPanel(JSplitPane SplitPane, Personhistory personHistory) {
         initComponents();
         this.SplitPane = SplitPane;
         this.personHistory = personHistory;
     }
     
-    private static boolean isInteger(String s) {
-    try { 
-        Integer.parseInt(s); 
-    } catch(NumberFormatException e) { 
-        return false; 
-    } catch(NullPointerException e) {
-        return false;
-    }
-    return true;
-    }
+//    private static boolean isInteger(String s) {
+//    try { 
+//        Integer.parseInt(s); 
+//    } 
+//    catch(NumberFormatException | NullPointerException e) { 
+//        return false; 
+//    }
+//    return true;
+//    }
     
     // only got here if we didn't return false
     
@@ -67,11 +67,11 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
         LabelGender = new javax.swing.JLabel();
         LabelAddress = new javax.swing.JLabel();
         LabelCity = new javax.swing.JLabel();
-        BtnSave1 = new javax.swing.JButton();
         BtnLogin = new javax.swing.JButton();
         BtnBack = new javax.swing.JButton();
         LabelCreatePass = new javax.swing.JLabel();
         TxtPass = new javax.swing.JPasswordField();
+        BtnSave = new javax.swing.JButton();
 
         LabelPincode.setText("Pincode:");
 
@@ -142,13 +142,6 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
 
         LabelCity.setText("City:");
 
-        BtnSave1.setText("Save");
-        BtnSave1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnSave1ActionPerformed(evt);
-            }
-        });
-
         BtnLogin.setText("Login");
         BtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,6 +158,13 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
 
         LabelCreatePass.setText("Create Password:");
 
+        BtnSave.setText("Save");
+        BtnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +175,7 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
                         .addGap(179, 179, 179)
                         .addComponent(BtnBack)
                         .addGap(18, 18, 18)
-                        .addComponent(BtnSave1)
+                        .addComponent(BtnSave)
                         .addGap(18, 18, 18)
                         .addComponent(BtnLogin))
                     .addGroup(layout.createSequentialGroup()
@@ -261,8 +261,8 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnBack)
-                    .addComponent(BtnSave1)
-                    .addComponent(BtnLogin))
+                    .addComponent(BtnLogin)
+                    .addComponent(BtnSave))
                 .addGap(92, 92, 92))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -308,45 +308,6 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ComboGenderActionPerformed
     
     
-    private void BtnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSave1ActionPerformed
-        // TODO add your handling code here:
-        String name = TxtName.getText();
-        String password = TxtPass.getText();
-        int age = Integer.parseInt(TxtAge.getText());
-        String gender = TxtGender.getText();
-        String address = TxtAddress.getText();
-        String city = TxtCity.getText();
-        int pincode = Integer.parseInt(TxtPincode.getText());
-        int cellphoneno = Integer.parseInt(TxtCellno.getText());
-        String emailID = TxtEmailid.getText();
-        
-        Person p = personHistory.addNewPerson();
-        
-        p.setName(name);
-        p.setPassword(password);
-        p.setAge(age);
-        p.setGender(gender);
-        p.setAddress(address);
-        p.setCity(city);
-        p.setPincode(pincode);
-        p.setCellphoneno(cellphoneno);
-        p.setEmailID(emailID);
-        
-        JOptionPane.showMessageDialog(this, "New Record Added");
-        
-        TxtName.setText("");
-        TxtAge.setText("");
-        TxtPass.setText("");
-        TxtGender.setText("");
-        TxtAddress.setText("");
-        TxtCity.setText("");
-        TxtPincode.setText("");
-        TxtCellno.setText("");
-        TxtEmailid.setText("");
-        
-
-    }//GEN-LAST:event_BtnSave1ActionPerformed
-
     private void BtnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBackActionPerformed
         // TODO add your handling code here:
         //closeWin();
@@ -361,12 +322,88 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
         SplitPane.setRightComponent(personlogin);
     }//GEN-LAST:event_BtnLoginActionPerformed
 
+    private void BtnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSaveActionPerformed
+        // TODO add your handling code here:
+        if (TxtName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Name field is Empty!");
+        }
+        else if (TxtPass.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Password field is Empty!");
+        }
+        else if (TxtAge.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Age field is Empty!");
+        }
+        else if(TxtGender.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Gender Field is empty");
+        }
+       else if(TxtAddress.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Address Field is empty");
+        }
+       else if(TxtCity.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "City Field is empty");
+        }
+       else if(TxtEmailid.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "EmailID Field is empty");
+        }
+//       else if(!isInteger(TxtAge.getText()))
+//        {
+//            JOptionPane.showMessageDialog(this, "Age Entered should be Integer");
+//        }
+       else if(Integer.parseInt(TxtAge.getText())>200)
+        {
+            JOptionPane.showMessageDialog(this, "Age Should not be over 200");
+        }
+       else if(!(TxtGender.getText().equals("Male") || TxtGender.getText().equals("Female") || TxtGender.getText().equals("male") || TxtGender.getText().equals("female")))
+        {
+            JOptionPane.showMessageDialog(this, "Gender Field Invalid");
+        }
+       else{
+        String name = TxtName.getText();        
+        //char[] password = TxtPass.getPassword();
+        int age = Integer.parseInt(TxtAge.getText());
+        String gender = TxtGender.getText();
+        String address = TxtAddress.getText();
+        String city = TxtCity.getText();
+        int pincode = Integer.parseInt(TxtPincode.getText());
+        int cellphoneno = Integer.parseInt(TxtCellno.getText());        
+        String emailID = TxtEmailid.getText();
+        
+        Person ps = personHistory.addNewPerson();
+        
+        ps.setName(name);
+        //p.setPassword(p);
+        ps.setAge(age);
+        ps.setGender(gender);
+        ps.setAddress(address);
+        ps.setCity(city);
+        ps.setPincode(pincode);
+        ps.setCellphoneno(cellphoneno);
+        ps.setEmailID(emailID);
+        
+        JOptionPane.showMessageDialog(this, "New Record Added!");
+        
+        TxtName.setText("");
+        TxtPass.setText("");
+        TxtAge.setText("");
+        TxtGender.setText("");
+        TxtAddress.setText("");
+        TxtCity.setText("");
+        TxtPincode.setText("");
+        TxtCellno.setText("");
+        TxtEmailid.setText("");
+       }
+        
+    }//GEN-LAST:event_BtnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBack;
     private javax.swing.JButton BtnLogin;
     private javax.swing.JButton BtnSave;
-    private javax.swing.JButton BtnSave1;
     private javax.swing.JComboBox<String> ComboGender;
     private javax.swing.JLabel LabelAddress;
     private javax.swing.JLabel LabelAge;

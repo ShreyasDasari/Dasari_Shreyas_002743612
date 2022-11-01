@@ -144,8 +144,8 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String username = txtusername.getText();
         String password = txtpass.getText();
-        for (Person p : personHistory.getHistory()){
-            if (username.equals(p.getName()) && password.equals(p.getPassword())){
+        //for (Person p : personHistory.getHistory()){
+            if (username.equals("person") && password.equals("person")){
             JOptionPane.showMessageDialog(this, "Login Successful");
             
 //            MainJFrame mj = new MainJFrame();
@@ -163,7 +163,7 @@ public class PersonLoginJPanel extends javax.swing.JPanel {
             }
 
     }//GEN-LAST:event_btnloginActionPerformed
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnback;

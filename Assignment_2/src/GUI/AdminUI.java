@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Model.DoctorHistory;
 import Model.Personhistory;
 import javax.swing.JSplitPane;
 
@@ -18,10 +19,12 @@ public class AdminUI extends javax.swing.JPanel {
      */
     private JSplitPane SplitPane;
     Personhistory personHistory;
+    DoctorHistory doctorHistory;
     public AdminUI(JSplitPane SplitPane, Personhistory personHistory) {
         initComponents();
         this.SplitPane = SplitPane;
         this.personHistory = personHistory;
+        this.doctorHistory = doctorHistory;
     }
 
     /**
@@ -73,6 +76,11 @@ public class AdminUI extends javax.swing.JPanel {
         );
 
         BtnPerson.setText("Person");
+        BtnPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPersonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -111,6 +119,11 @@ public class AdminUI extends javax.swing.JPanel {
         );
 
         BtnDoctor.setText("Doctor");
+        BtnDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDoctorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -207,6 +220,18 @@ public class AdminUI extends javax.swing.JPanel {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDoctorActionPerformed
+        // TODO add your handling code here:
+        DoctorRegister doctorRegister = new DoctorRegister(SplitPane, personHistory, doctorHistory);
+        SplitPane.setRightComponent(doctorRegister);
+    }//GEN-LAST:event_BtnDoctorActionPerformed
+
+    private void BtnPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPersonActionPerformed
+        // TODO add your handling code here:
+        ViewPersonJPanel viewPerson = new ViewPersonJPanel(SplitPane, personHistory);
+        SplitPane.setRightComponent(viewPerson);
+    }//GEN-LAST:event_BtnPersonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

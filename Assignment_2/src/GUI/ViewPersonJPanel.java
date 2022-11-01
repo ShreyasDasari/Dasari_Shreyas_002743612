@@ -44,15 +44,15 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         lblAge = new javax.swing.JLabel();
         lblGender = new javax.swing.JLabel();
-        lblResidence = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
-        lblCommunity = new javax.swing.JLabel();
+        lblCellno = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         txtGender = new javax.swing.JTextField();
-        txtResidence = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
-        txtCommunity = new javax.swing.JTextField();
+        txtCellno = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
@@ -72,7 +72,7 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Gender", "Residence", "City", "Community"
+                "Name", "Age", "Gender", "Address", "City", "Cellno"
             }
         ));
         jScrollPane1.setViewportView(tblViewPersons);
@@ -110,17 +110,17 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         lblGender.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblGender.setText("Gender:");
 
-        lblResidence.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblResidence.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblResidence.setText("Residence:");
+        lblAddress.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAddress.setText("Address:");
 
         lblCity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblCity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCity.setText("City:");
 
-        lblCommunity.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblCommunity.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblCommunity.setText("Community:");
+        lblCellno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblCellno.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCellno.setText("CellphoneNo:");
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -179,9 +179,9 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
                                     .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblCommunity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                        .addComponent(lblCellno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                                         .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblResidence, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(lblGender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,9 +190,9 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
                                         .addComponent(txtName)
                                         .addComponent(txtAge)
                                         .addComponent(txtGender)
-                                        .addComponent(txtResidence)
+                                        .addComponent(txtAddress)
                                         .addComponent(txtCity)
-                                        .addComponent(txtCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                                        .addComponent(txtCellno, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -228,16 +228,16 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblResidence)
-                    .addComponent(txtResidence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAddress)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCommunity)
-                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCellno)
+                    .addComponent(txtCellno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnUpdate)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -333,10 +333,10 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String Name = txtName.getText();
         String Gender = txtGender.getText();
-        String Residence = txtResidence.getText();
+        String Residence = txtAddress.getText();
         String City = txtCity.getText();
         int Age = Integer.parseInt(txtAge.getText());
-        String Community = txtCommunity.getText();
+        String Community = txtCellno.getText();
 
         int selectedRowIndex = tblViewPersons.getSelectedRow();
 
@@ -410,19 +410,19 @@ public class ViewPersonJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnView;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAge;
+    private javax.swing.JLabel lblCellno;
     private javax.swing.JLabel lblCity;
-    private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblResidence;
     private javax.swing.JTable tblViewPersons;
+    private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtCellno;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtResidence;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
