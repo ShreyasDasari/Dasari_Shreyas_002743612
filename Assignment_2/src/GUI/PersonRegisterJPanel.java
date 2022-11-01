@@ -27,15 +27,15 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
         this.personHistory = personHistory;
     }
     
-//    private static boolean isInteger(String s) {
-//    try { 
-//        Integer.parseInt(s); 
-//    } 
-//    catch(NumberFormatException | NullPointerException e) { 
-//        return false; 
-//    }
-//    return true;
-//    }
+    private static boolean isInteger(String s) {
+    try { 
+        Integer.parseInt(s); 
+    } 
+    catch(NumberFormatException | NullPointerException e) { 
+        return false; 
+    }
+    return true;
+    }
     
     // only got here if we didn't return false
     
@@ -349,10 +349,10 @@ public class PersonRegisterJPanel extends javax.swing.JPanel {
         {
             JOptionPane.showMessageDialog(this, "EmailID Field is empty");
         }
-//       else if(!isInteger(TxtAge.getText()))
-//        {
-//            JOptionPane.showMessageDialog(this, "Age Entered should be Integer");
-//        }
+       else if(!isInteger(TxtAge.getText()))
+        {
+            JOptionPane.showMessageDialog(this, "Age Entered should be Integer");
+        }
        else if(Integer.parseInt(TxtAge.getText())>200)
         {
             JOptionPane.showMessageDialog(this, "Age Should not be over 200");

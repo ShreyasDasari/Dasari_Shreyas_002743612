@@ -8,7 +8,7 @@ package Model;
  *
  * @author shreyasdasariicloud.com
  */
-public class Person {
+public class Person extends Residence{
     private String name;
     private String password;
     private int age;
@@ -51,10 +51,12 @@ public class Person {
         this.address = address;
     }
 
+    @Override
     public String getCity() {
         return city;
     }
 
+    @Override
     public void setCity(String city) {
         this.city = city;
     }
